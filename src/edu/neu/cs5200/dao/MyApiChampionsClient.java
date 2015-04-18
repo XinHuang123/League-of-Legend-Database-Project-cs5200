@@ -23,6 +23,7 @@ public class MyApiChampionsClient {
 	
 	private final String FIND_CHAMPION_BY_ID="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/champion_id?champData=blurb,lore&api_key=31955fd7-6220-496d-8620-9d4716c152f9";	
 	private final String FIND_CHAMPION_BY_NAME="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=blurb,lore&api_key=31955fd7-6220-496d-8620-9d4716c152f9";              
+	
 	public Champion findChampionByName()
 	{
 		
@@ -102,17 +103,17 @@ public class MyApiChampionsClient {
 
 	
 	
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		MyApiChampionsClient client=new MyApiChampionsClient();
 		//Movie movie=client.findMovieById("tt0499549");
 		//System.out.println(movie.getPlot());
-		Movie[] movies=client.findMovieByTitle("star wars");
-		for(Movie movie:movies)
-		{
-			System.out.println(movie.getTitle());
-			System.out.println(movie.getPlot());
-		}
+		Champion movies=client.findChampionById(1);
+		//for(Champion movie:movies)
+		//{
+			System.out.println(movies.getTitle());
+			
+		//}
 	}
-*/
+
 }

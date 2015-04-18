@@ -3,7 +3,10 @@ package edu.neu.cs5200.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown=true)// ignore unknown
 public class Champion {	
 		@Id
 		private Integer id;
