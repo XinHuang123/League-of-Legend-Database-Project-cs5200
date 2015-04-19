@@ -53,17 +53,25 @@ public class ChampionDAO {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//ChampionDAO dao=new ChampionDAO();
-		//Champion champion=new Champion(1, "456","123","123","123","123");
+		MyApiChampionsClient client=new MyApiChampionsClient();
+		//for(int i=74;i<77;i++)
+		//{
+		//	Champion champion=client.findChampionById(54);			
+		//	ChampionDAO dao=new ChampionDAO();
+			
+		//	Champion champions=new Champion(champion.getId(),champion.getTitle(),champion.getName(),champion.getKey(),champion.getBlurb(),champion.getLore());
+		//	dao.createChampion(champions);
+		//}
+		
 		//champion=dao.createChampion(champion);
-		//System.out.println(champion.getId());
-		//dao.updateChampion(champion);
+		//System.out.println(champion.getId());		
+	    //dao.deleteChampion(1);				
 		//List<Champion> champion=dao.readAllChampions();
 		//for(Champion champions:champion)
 		//{
 		//	System.out.println(champions.getName());
 		//}
+		
 
 	}
 

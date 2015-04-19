@@ -1,5 +1,6 @@
 package edu.neu.cs5200.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -12,7 +13,8 @@ public class Champion {
 		private Integer id;
 		private String title;
 		private String name;
-		private String championkey;
+		@Column(name = "championkey")
+		private String key;
 		private String blurb;
 		private String lore;
 		
@@ -37,11 +39,11 @@ public class Champion {
 			this.name = name;
 		}
 		
-		public String getChampionkey() {
-			return championkey;
+		public String getKey() {
+			return key;
 		}
-		public void setChampionkey(String championkey) {
-			this.championkey = championkey;
+		public void setKey(String key) {
+			this.key = key;
 		}
 		
 		public String getBlurb() {
@@ -62,12 +64,12 @@ public class Champion {
 			super();
 		}
 		
-		public Champion(Integer id, String title, String name , String championkey ,String blurb , String lore ) {
+		public Champion(Integer id, String title, String name , String key ,String blurb , String lore ) {
 			super();
 			this.id = id;
 			this.title = title;
 			this.name=name;
-			this.championkey=championkey;
+			this.key=key;
 			this.blurb=blurb;
 			this.lore=lore;
 			

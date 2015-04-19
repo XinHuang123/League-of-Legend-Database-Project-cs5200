@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -22,19 +23,19 @@ import edu.neu.cs5200.models.Champion;
 public class MyApiChampionsClient {
 	
 	private final String FIND_CHAMPION_BY_ID="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/champion_id?champData=blurb,lore&api_key=31955fd7-6220-496d-8620-9d4716c152f9";	
-	private final String FIND_CHAMPION_BY_NAME="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=blurb,lore&api_key=31955fd7-6220-496d-8620-9d4716c152f9";              
+	private final String FIND_ALL_CHAMPIONS="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=31955fd7-6220-496d-8620-9d4716c152f9";              
 	
-	public Champion findChampionByName()
+	public List<Champion> findallChampions(String name)
 	{
 		
-		String url=FIND_CHAMPION_BY_NAME;
+		String url=FIND_ALL_CHAMPIONS.replace("champion", name);
 		
 		System.out.println();
 		
 		String json=getJsonStringForUrl(url); 
 		ObjectMapper mapper=new ObjectMapper();
 		try {
-			return mapper.readValue(json, Champion.class);
+			return (List<Champion>)mapper.readValue(json, Champion.class);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,10 +109,13 @@ public class MyApiChampionsClient {
 		MyApiChampionsClient client=new MyApiChampionsClient();
 		//Movie movie=client.findMovieById("tt0499549");
 		//System.out.println(movie.getPlot());
-		Champion movies=client.findChampionById(1);
+		//Champion movies=client.findallChampions("champion");
+		Champion champion=client.findChampionById(35);
 		//for(Champion movie:movies)
 		//{
-			System.out.println(movies.getTitle());
+		//List<Champion> champions=client.findallChampions("champion");
+		//for(Champion champion:champions)
+			System.out.println(champion.getName());
 			
 		//}
 	}

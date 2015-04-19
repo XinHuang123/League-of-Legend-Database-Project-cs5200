@@ -26,7 +26,8 @@
     	 <tr>
     	     <td><%=champion.getId() %></td> 
     	     <td><%=champion.getName() %></td>    	      
-    	     <td><%=champion.getTitle() %></td>    	          	    
+    	     <td><%=champion.getTitle() %></td>
+    	     <td><%=champion.getKey() %></td>      	          	    
     	     <td><%=champion.getBlurb() %></td>
     	     <td><%=champion.getLore()%></td>         	        	         	       	    	         	      
     	     <td><img src="<%=url %>"/></td> 
