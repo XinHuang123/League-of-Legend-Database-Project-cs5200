@@ -24,6 +24,32 @@ public class MyApiChampionsClient {
 	
 	private final String FIND_CHAMPION_BY_ID="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/champion_id?champData=blurb,lore&api_key=31955fd7-6220-496d-8620-9d4716c152f9";	
 	private final String FIND_ALL_CHAMPIONS="https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=31955fd7-6220-496d-8620-9d4716c152f9";              
+	private final  String FIND_IMAGE_BY_NAME="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/champion_name.png ";
+	
+	/*
+	public Champion findImageByName(String name)
+	{
+		name=URLEncoder.encode(name);
+		String url=FIND_IMAGE_BY_NAME.replace("champion_name", name);		
+		
+		String json=getJsonStringForUrl(url); 
+		ObjectMapper mapper=new ObjectMapper();
+		try {
+			return mapper.readValue(json, Champion.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	*/
+	
 	
 	public List<Champion> findallChampions(String name)
 	{
@@ -110,12 +136,12 @@ public class MyApiChampionsClient {
 		//Movie movie=client.findMovieById("tt0499549");
 		//System.out.println(movie.getPlot());
 		//Champion movies=client.findallChampions("champion");
-		Champion champion=client.findChampionById(35);
+		
 		//for(Champion movie:movies)
 		//{
 		//List<Champion> champions=client.findallChampions("champion");
 		//for(Champion champion:champions)
-			System.out.println(champion.getName());
+		//	System.out.println(champion.getTitle());
 			
 		//}
 	}
