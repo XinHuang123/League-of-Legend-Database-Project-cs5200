@@ -24,6 +24,14 @@ public class ChampionDAO {
 		return champion;
 	}
 	
+	
+	public Champion readChampionByName(String name)
+	{
+		return em.find(Champion.class, name);
+	}
+	
+	
+	
 	public Champion readChampionById(Integer id)
 	{
 		return em.find(Champion.class, id);
@@ -57,19 +65,20 @@ public class ChampionDAO {
 		//for(int i=74;i<77;i++)
 		//{
 		//	Champion champion=client.findChampionById(54);			
-		//	ChampionDAO dao=new ChampionDAO();
-			
+		ChampionDAO dao=new ChampionDAO();
+		Champion champion=dao.readChampionByName("Annie");
+		//Champion champion=dao.readChampionById(1);
 		//	Champion champions=new Champion(champion.getId(),champion.getTitle(),champion.getName(),champion.getKey(),champion.getBlurb(),champion.getLore());
 		//	dao.createChampion(champions);
 		//}
 		
 		//champion=dao.createChampion(champion);
-		//System.out.println(champion.getId());		
+		//System.out.println(champions.getTitle());		
 	    //dao.deleteChampion(1);				
 		//List<Champion> champion=dao.readAllChampions();
 		//for(Champion champions:champion)
 		//{
-		//	System.out.println(champions.getName());
+			System.out.println(champion.getName());
 		//}
 		
 

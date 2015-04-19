@@ -2,8 +2,8 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="LolDatabaseProject">
 	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-	<class>edu.neu.cs5200.models.Movie</class>
 	<class>edu.neu.cs5200.models.Champion</class>
+	<class>edu.neu.cs5200.models.User</class>
 		<properties>
 			<property name="eclipselink.jdbc.password" value="" />
 			<property name="eclipselink.jdbc.user" value="root" />
