@@ -74,8 +74,30 @@
                 <td><%=champion.getTitle() %></td>
                 <td><a href="championsDetails.jsp?id=<%=champion.getId()%>"><%=champion.getName() %></a></td>     
                 <%
-                final  String FIND_IMAGE_BY_NAME="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/champion_name.png ";              
-                String url=FIND_IMAGE_BY_NAME.replace("champion_name",  URLEncoder.encode(champion.getName()));
+               
+                final  String FIND_IMAGE_BY_NAME="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/champion_name.png ";   
+               
+                String c=champion.getName().replaceAll("\\s+","");
+                String url=FIND_IMAGE_BY_NAME.replace("champion_name",  c);
+                if(champion.getId()==9)
+                {
+                	String d=champion.getName().replace("Fiddlesticks","FiddleSticks");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  d);
+                }
+                else if(champion.getId()==31)
+                {
+                	String v=champion.getName().replace("Cho'Gath","Chogath");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v);
+                }
+                else if(champion.getId()==36)
+                {
+                	String v1=champion.getName().replace("Dr. Mundo","DrMundo");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v1);
+                }
+                else
+                {
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  c);
+                }
              	%>           
                 <td><img src="<%=url %>"/></td>
             </tr>

@@ -59,6 +59,8 @@ public class ChampionDAO {
 		em.remove(champion);
 		em.getTransaction().commit();
 	}
+	
+	
 
 	public static void main(String[] args) {
 		MyApiChampionsClient client=new MyApiChampionsClient();
