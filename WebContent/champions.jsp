@@ -94,10 +94,31 @@
                 	String v1=champion.getName().replace("Dr. Mundo","DrMundo");
                 	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v1);
                 }
+                else if(champion.getId()==96)
+                {
+                	String v2=champion.getName().replace("Kog'Maw","KogMaw");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v2);
+                }
+                else if(champion.getId()==121)
+                {
+                	String v3=champion.getName().replace("Kha'Zix","Khazix");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v3);
+                }
+                else if(champion.getId()==161)
+                {
+                	String v4=champion.getName().replace("Vel'Koz","Velkoz");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v4);
+                }
+                else if(champion.getId()==421)
+                {
+                	String v5=champion.getName().replace("Rek'Sai","RekSai");
+                	url=FIND_IMAGE_BY_NAME.replace("champion_name",  v5);
+                }
                 else
                 {
                 	url=FIND_IMAGE_BY_NAME.replace("champion_name",  c);
                 }
+                
              	%>           
                 <td><img src="<%=url %>"/></td>
             </tr>
