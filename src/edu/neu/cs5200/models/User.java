@@ -1,35 +1,34 @@
 package edu.neu.cs5200.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown=true)// ignore unknown
 public class User {
-	@Id
-	private Integer id;
-	private String name;
-	private String username;
+	@Id	
+	private String username;//primary key
 	private String password;
+	//@ManyToOne(fetch=FetchType.LAZY)
+	//@JoinColumn(name="id")
+	//private Champion champion;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	//public Champion getChampion() {
+	//	return champion;
+	//}
+	//public void setChampion(Champion champion) {
+	//	this.champion = champion;
+	//}
+	
 	public String getUsername() {
 		return username;
 	}
-	public void setId(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 	public String getPassword() {
@@ -40,12 +39,11 @@ public class User {
 	}
 	
 	
-	public User(Integer id, String name, String username, String password) {
+	public User(String username, String password) {
 		super();
-		this.id = id;
-		this.name = name;
 		this.username=username;
 		this.password=password;
+		//this.champion=champion;
 	}
 	public User() {
 		super();

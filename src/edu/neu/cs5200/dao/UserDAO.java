@@ -1,4 +1,5 @@
 package edu.neu.cs5200.dao;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,10 +9,37 @@ import javax.persistence.Query;
 
 import edu.neu.cs5200.models.Champion;
 import edu.neu.cs5200.models.User;
+
+
 public class UserDAO {
 	
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("LolDatabaseProject") ;
 	EntityManager em = factory.createEntityManager();
+	
+	static UserDAO instance = null;
+	public static UserDAO getInstance() {
+		if(instance == null) {
+			instance = new UserDAO();
+		}
+		return instance;
+	}
+	
+public Boolean findUserByUsernamePassword(String username, String password) {
+		
+		try {
+			User user = em.find(User.class, username);
+			if (user.getPassword().equals(password)) {
+				return true;
+			}
+			return false; 
+		}
+		catch (Exception e) {
+			System.out.println("Invalid username");
+		}
+		
+		return false;
+}
+
 	
 	//createUser
 	public User createUser(User user)
@@ -22,10 +50,10 @@ public class UserDAO {
 		return user;
 	}
 	
-	//readUserByName
-	public User readUserByName(String name)
+	//readUserByUsername
+	public User readUserByUsername(String username)
 	{
-		return em.find(User.class, name);
+		return em.find(User.class, username);
 	}
 	
 	// readAllUsers
@@ -36,7 +64,7 @@ public class UserDAO {
 		}
 		
 		// updateUser
-		public User updateUser(User user)
+		public User UpdateUser(User user)
 		{
 			em.getTransaction().begin();
 			em.merge(user);
@@ -44,25 +72,27 @@ public class UserDAO {
 			return user;
 		}
 		// deleteChampion
-		public void deleteUser(int id) {
+		public void deleteUser(String username) {
 			em.getTransaction().begin();
-			User user = em.find(User.class, id);
+			User user = em.find(User.class, username);
 			em.remove(user);
 			em.getTransaction().commit();
 		}
 
 	public static void main(String[] args) {
-		UserDAO dao=new UserDAO();
-		//User user=new User(1,"Xin");
+		//UserDAO dao=new UserDAO();
+		//boolean a=dao.findUserByUsernamePassword("hello", "123");
 		//User user1=new User(null,"Annie");
-		dao.deleteUser(2);
+		//user=dao.readUserByUserid(1);
 		//List<User> user=dao.readAllUsers();
 		//for(User users:user)
 		//{
-		//	System.out.println(users.getName());
+		//	System.out.println(a);
 		//}
 	
 
 	}
+	
+	
 
 }

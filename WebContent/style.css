@@ -1,0 +1,25 @@
+.container {
+	width: 100%;
+	height: 300px;
+}
+.avatar {
+	float: left;
+}
+
+.queries {
+	float: right;
+	
+}
+
+body {
+    background-image: url('http://crunchify.com/bg.png');
+}
+
+.recentlikes {
+}
+
+.recentfollows {
+}
+
+.activity {
+}

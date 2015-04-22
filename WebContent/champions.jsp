@@ -70,7 +70,7 @@
         Champion champion=dao.readChampionById(Id);
         %>
             <tr>
-                <td><%=champion.getId() %></td>
+                <td><%=champion.getId()%></td>
                 <td><%=champion.getTitle() %></td>
                 <td><a href="championsDetails.jsp?id=<%=champion.getId()%>"><%=champion.getName() %></a></td>     
                 <%

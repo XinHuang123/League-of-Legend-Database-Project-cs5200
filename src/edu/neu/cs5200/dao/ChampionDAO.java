@@ -1,4 +1,4 @@
-package edu.neu.cs5200.dao;
+ package edu.neu.cs5200.dao;
 
 import java.util.List;
 
@@ -25,10 +25,10 @@ public class ChampionDAO {
 	}
 	
 	
-	public Champion readChampionByName(String name)
-	{
-		return em.find(Champion.class, name);
-	}
+//	public Champion readChampionByName(String name)
+//	{
+//		return em.find(Champion.class, name);
+//	}
 	
 	
 	
@@ -66,9 +66,10 @@ public class ChampionDAO {
 		MyApiChampionsClient client=new MyApiChampionsClient();
 		//for(int i=74;i<77;i++)
 		//{
-		//	Champion champion=client.findChampionById(54);			
 		ChampionDAO dao=new ChampionDAO();
-		Champion champion=dao.readChampionByName("Annie");
+		Champion champion=dao.readChampionById(1);			
+
+		//Champion champion=dao.readChampionByName("Annie");
 		//Champion champion=dao.readChampionById(1);
 		//	Champion champions=new Champion(champion.getId(),champion.getTitle(),champion.getName(),champion.getKey(),champion.getBlurb(),champion.getLore());
 		//	dao.createChampion(champions);
@@ -80,7 +81,8 @@ public class ChampionDAO {
 		//List<Champion> champion=dao.readAllChampions();
 		//for(Champion champions:champion)
 		//{
-			System.out.println(champion.getName());
+		
+			System.out.println(champion.getTitle());
 		//}
 		
 

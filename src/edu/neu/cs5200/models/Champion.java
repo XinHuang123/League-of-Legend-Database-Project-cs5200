@@ -1,9 +1,12 @@
 package edu.neu.cs5200.models;
 
+import java.util.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+import edu.neu.cs5200.models.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -17,8 +20,16 @@ public class Champion {
 		private String key;
 		private String blurb;
 		private String lore;
+		//@OneToMany(mappedBy="champion")
+		//private List<User> users;
 		
 		
+		//public List<User> getUsers() {
+		//	return users;
+		//}
+		//public void setUsers(List<User> users) {
+		//	this.users = users;
+		//}
 		public Integer getId() {
 			return id;
 		}
