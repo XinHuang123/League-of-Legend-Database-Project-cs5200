@@ -29,7 +29,7 @@ public class CommentDAO {
         public void createComment (String username, String content, String title) {      
                
                 UserDAO userDao = UserDAO.getInstance();
-                Comment comment = new Comment(userDao.readUserByUsername(username), content, title);
+                Comment comment = new Comment(userDao.readUserByUsername(username), content);
                
                 em.getTransaction().begin();
                 em.persist(comment);

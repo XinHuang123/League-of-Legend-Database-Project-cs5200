@@ -82,7 +82,7 @@ public class ChampionDAO {
 		//for(Champion champions:champion)
 		//{
 		
-			System.out.println(champion.getTitle());
+			System.out.println(champion.getUsers().size());
 		//}
 		
 

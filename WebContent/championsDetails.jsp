@@ -4,7 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Champion Details</title>
+<style type="text/css">
+body {
+    background-image: url('http://crunchify.com/bg.png');
+}
+</style>
 </head>
 <body>
     <div>

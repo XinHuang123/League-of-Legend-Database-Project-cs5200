@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Login Form</title>
- 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <style type="text/css">
 body {
-    background-image: url('http://crunchify.com/bg.png');
+    background-image: url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Teemo_3.jpg');
 }
 </style>
 </head>
@@ -14,14 +14,19 @@ body {
 <body>
  
     <div align="center">
+    <h1>League Of Legends</h1>
         <br> <br>
         <form action="LoginServlet" method="post">
-            Enter Your Username: <input type="text" name="User">
-            <br> Enter Your Password: <input type="password"
-                name="Password"> <br> <br> <br>
-                Enter Your Role<input type="role" name="Role"> <input
-                type="submit" value="Login">
+           Enter Your Username:<input type="text" name="User">
+            <br><br> 
+          Enter Your Password:<input type="password" name="Password">
+            <br><br>
+          Enter Your Role:<input type="role" name="Role">
+            <br><br>
+            <input class="btn btn-success" type="submit" value="Login">
+            
         </form>
+        <button class="btn btn-success" herf="registration.jsp">Rrgistration</button>
     </div>
 </body>
 </html>

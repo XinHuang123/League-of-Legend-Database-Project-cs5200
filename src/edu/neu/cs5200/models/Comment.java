@@ -23,7 +23,7 @@ public class Comment implements Serializable {
 	private String content;
 
 	
-	private String title;
+	
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -61,19 +61,13 @@ public class Comment implements Serializable {
 		this.user = user;
 	}
 	
-	public String getTitle() {
-		return title;
-	}
+	
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Comment(User user, String content, String title) {
+	public Comment(User user, String content) {
 		super();
 		this.user = user;
 		this.content = content;
-		this.title = title;
+		
 	}
 
 	

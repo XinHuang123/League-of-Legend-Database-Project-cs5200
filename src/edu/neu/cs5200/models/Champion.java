@@ -20,16 +20,12 @@ public class Champion {
 		private String key;
 		private String blurb;
 		private String lore;
-		//@OneToMany(mappedBy="champion")
-		//private List<User> users;
 		
 		
-		//public List<User> getUsers() {
-		//	return users;
-		//}
-		//public void setUsers(List<User> users) {
-		//	this.users = users;
-		//}
+		@OneToMany(mappedBy="champion")  //point to user class(private String champion)
+		private List<User> users; //navigate to user
+	    
+		
 		public Integer getId() {
 			return id;
 		}
@@ -71,11 +67,21 @@ public class Champion {
 			this.lore = lore;
 		}
 		
+		public List<User> getUsers() {
+			return users;
+		}
+		public void setUsers(List<User> users) {
+			this.users = users;
+		}
+		
+		
+
+		
 		public Champion() {
 			super();
 		}
 		
-		public Champion(Integer id, String title, String name , String key ,String blurb , String lore ) {
+		public Champion(Integer id, String title, String name , String key ,String blurb , String lore) {
 			super();
 			this.id = id;
 			this.title = title;
@@ -84,6 +90,8 @@ public class Champion {
 			this.blurb=blurb;
 			this.lore=lore;
 			
+			
 		}
+		
 		
 }

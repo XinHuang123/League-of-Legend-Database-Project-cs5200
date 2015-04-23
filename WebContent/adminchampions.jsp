@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Login Successful</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <style type="text/css">
 body {
     background-image: url('http://crunchify.com/bg.png');
@@ -63,8 +64,8 @@ body {
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>               
                 <th>                 
-                    <button class="btn btn-primary" name="action" value="search">Search</button>
-                    <button class="btn btn-success" name="action" value="create">Add</button>
+                    <button class="btn btn-success" name="action" value="search">Search</button>
+                    <button class="btn btn-warning" name="action" value="create">Add</button>
                     <button class="btn btn-primary" name="action" value="update">Update</button>
                 </th>
             </tr>
@@ -130,7 +131,7 @@ body {
                 <td><img src="<%=url %>"/></td>
                 <td>
                     <a class="btn btn-danger" href="adminchampions.jsp?action=delete&id=<%=champion.getId() %>">Delete</a>
-                    <a class="btn btn-warning" href="adminchampions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>">Select</a>
+                    <a class="btn btn-primary" href="adminchampions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>">Select</a>
                 </td>
             </tr>
    <%

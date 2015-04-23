@@ -5,10 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Login Successful</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <style type="text/css">
 body {
     background-image: url('http://crunchify.com/bg.png');
 }
+
 </style>
 </head>
     <div class="container">
@@ -62,7 +64,7 @@ body {
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>               
                 <th>
                  
-                    <button class="btn btn-primary" name="action" value="search">Search</button>
+                    <button class="btn btn-success" name="action" value="search">Search</button>
                 </th>
             </tr>
         </thead>
