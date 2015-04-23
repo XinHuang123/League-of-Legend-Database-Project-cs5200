@@ -52,7 +52,10 @@ body {
     	UserDAO userdao=new UserDAO();
     	ChampionDAO championdao=new ChampionDAO();
     	Champion champion=new Champion(idInt,null,null,null,null,null);
-		User user=new User(username,null,null,champion);
+    	User user=userdao.readUserByUsername(username);
+    	String password=user.getPassword();
+    	String role=user.getRole();
+		user=new User(username,password,role,champion);
 		userdao.UpdateUser(user);
     	//User user1=userdao.readUserByUsername(username);
     	//ChampionDAO championdao=new ChampionDAO();
