@@ -36,8 +36,8 @@ body {
     }
     else if("update".equals(action))
     {
-        int idInt = Integer.parseInt(id);
-        Champion champion = new Champion();
+        int idInt = Integer.parseInt(id);      
+        Champion champion=championDAO.readChampionById(idInt);
         champion.setTitle(title);
         champion.setName(name);       
         championDAO.updateChampion(champion);
