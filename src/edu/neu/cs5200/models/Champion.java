@@ -22,7 +22,7 @@ public class Champion {
 		private String lore;
 		
 		
-		@OneToMany(mappedBy="champion")  //point to user class(private String champion)
+		@OneToMany(mappedBy="championid")  //point to user class(private String champion)
 		private List<User> users; //navigate to user
 	    
 		

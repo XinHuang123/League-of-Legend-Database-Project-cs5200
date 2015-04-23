@@ -98,14 +98,16 @@ public int findUserByRole(String username) {
 
 	public static void main(String[] args) {
 		UserDAO dao=new UserDAO();
-		int a=dao.findUserByRole("hello");
+		Champion champion=new Champion(450,"what",null,null,null,null);
+		User user=new User("hello",null,null,champion);
+		dao.UpdateUser(user);
 		//boolean a=dao.findUserByUsernamePassword("hello", "123");
 		//User user1=new User(null,"Annie");
 		//user=dao.readUserByUserid(1);
 		//List<User> user=dao.readAllUsers();
 		//for(User users:user)
 		//{
-			System.out.println(a);
+		//	System.out.println(a);
 		//}
 	
 

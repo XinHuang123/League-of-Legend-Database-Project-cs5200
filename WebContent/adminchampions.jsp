@@ -17,11 +17,13 @@ body {
     
     <%
     ChampionDAO championDAO = new ChampionDAO();
-    
+   
     String action = request.getParameter("action");
+    String username=request.getParameter("username");
     String id = request.getParameter("id");
     String title  = request.getParameter("title");
     String name = request.getParameter("name");
+  
     
     if("create".equals(action))
     {
@@ -44,6 +46,18 @@ body {
         championDAO.updateChampion(champion);
     }
     
+    if("like".equals(action))
+    {
+    	int idInt = Integer.parseInt(id); 
+    	UserDAO userdao=new UserDAO();
+    	ChampionDAO championdao=new ChampionDAO();
+    	Champion champion=new Champion(idInt,null,null,null,null,null);
+		User user=new User(username,null,null,champion);
+		userdao.UpdateUser(user);
+    	//User user1=userdao.readUserByUsername(username);
+    	//ChampionDAO championdao=new ChampionDAO();
+    	//championdao.addUser(idInt, user1);
+    }
     //int idInt = Integer.parseInt(id);
     //Champion champion=championDAO.readChampionById(idInt);
     //List<Champion> champions = championDAO.findAllMovies();
@@ -57,16 +71,18 @@ body {
                 <th>ID</th>
                 <th>Title</th>
                 <th>Name</th>
-                
+                <th>Username</th>
             </tr>
             <tr>
                 <th><input class="form-control" name="id" placeholder="plz type id" value="<%=id%>" /></th>
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
-                <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>               
+                <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>   
+                <th><input class="form-control" name="username" placeholder="plz type username"  value="<%=username%>"/></th>             
                 <th>                 
                     <button class="btn btn-success" name="action" value="search">Search</button>
                     <button class="btn btn-warning" name="action" value="create">Add</button>
                     <button class="btn btn-primary" name="action" value="update">Update</button>
+                    <button class="btn btn-primary" name="action" value="like">Like</button>
                 </th>
             </tr>
         </thead>
@@ -74,8 +90,10 @@ body {
   <%  if("search".equals(action))
     {
     	ChampionDAO dao=new ChampionDAO();
+    	UserDAO userdao=new UserDAO();
     	int Id = Integer.parseInt(id);
         Champion champion=dao.readChampionById(Id);
+        User user=userdao.readUserByUsername(username);
         %>
             <tr>
                 <td><%=champion.getId()%></td>
@@ -131,7 +149,7 @@ body {
                 <td><img src="<%=url %>"/></td>
                 <td>
                     <a class="btn btn-danger" href="adminchampions.jsp?action=delete&id=<%=champion.getId() %>">Delete</a>
-                    <a class="btn btn-primary" href="adminchampions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>">Select</a>
+                    <a class="btn btn-primary" href="adminchampions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>&username=<%=user.getUsername()%>">Select</a>
                 </td>
             </tr>
    <%

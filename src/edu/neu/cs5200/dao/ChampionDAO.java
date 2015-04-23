@@ -7,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import edu.neu.cs5200.models.Champion;
 
+import edu.neu.cs5200.models.*;
 
 
 public class ChampionDAO {
@@ -60,6 +60,16 @@ public class ChampionDAO {
 		em.getTransaction().commit();
 	}
 	
+	public void addUser(Integer id, User user)  //user like that champion
+	{
+		em.getTransaction().begin();
+		Champion champion = em.find(Champion.class, id);
+		user.setChampionid(champion);
+		champion.getUsers().add(user);
+		em.merge(champion);
+		em.getTransaction().commit();
+	}
+	
 	
 
 	public static void main(String[] args) {
@@ -67,6 +77,8 @@ public class ChampionDAO {
 		//for(int i=74;i<77;i++)
 		//{
 		ChampionDAO dao=new ChampionDAO();
+		User user=new User("messi","luck","hello",null);
+		dao.addUser(1,user);
 		Champion champion=dao.readChampionById(1);			
 
 		//Champion champion=dao.readChampionByName("Annie");

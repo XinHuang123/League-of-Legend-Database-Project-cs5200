@@ -65,6 +65,7 @@ body {
                 <th>
                  
                     <button class="btn btn-success" name="action" value="search">Search</button>
+                    <button class="btn btn-success" name="action" value="search">Like</button>
                 </th>
             </tr>
         </thead>

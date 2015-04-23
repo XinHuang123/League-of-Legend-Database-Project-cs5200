@@ -18,7 +18,7 @@ public class User {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="championid")  // point to user table in database(cloumn: championid)
-	private Champion champion;	
+	private Champion championid;	
 	
 	
 	
@@ -50,19 +50,19 @@ public class User {
 		this.password = password;
 	}
 	
-	public Champion getChampion() {
-		return champion;
+	public Champion getChampionid() {
+		return championid;
 	}
-	public void setChampionid(Champion champion) {
-		this.champion = champion;
+	public void setChampionid(Champion championid) {
+		this.championid = championid;
 	}
 	
-	public User(String username, String password, String role, Champion champion) {
+	public User(String username, String password, String role, Champion championid) {
 		super();
 		this.username=username;
 		this.password=password;
 		this.role=role;
-		this.champion=champion;
+		this.championid=championid;
 		//this.champion=champion;
 	}
 	public User() {
