@@ -31,14 +31,26 @@ public class LoginServlet extends HttpServlet {
         // get request parameters for userID and password
         String User = request.getParameter("User");
         String pwd = request.getParameter("Password");
+        String role=request.getParameter("role");
  
      //   if (userID.equals(User) && password.equals(pwd)) {
         if(dao.findUserByUsernamePassword(User, pwd)) {
-            Cookie LoginCookie = new Cookie("User", User);
-            // setting cookie to expiry in 60 mins
-            LoginCookie.setMaxAge(60 * 60);
-            response.addCookie(LoginCookie);
-            response.sendRedirect("champions.jsp");
+        	if(dao.findUserByRole(User)==1)
+        	{
+        		Cookie LoginCookie = new Cookie("User", User);
+                // setting cookie to expiry in 60 mins
+                LoginCookie.setMaxAge(60 * 60);
+                response.addCookie(LoginCookie);
+                response.sendRedirect("champions.jsp");	
+        	}
+        	else if(dao.findUserByRole(User)==2)
+        	{
+        		Cookie LoginCookie = new Cookie("User", User);
+                // setting cookie to expiry in 60 mins
+                LoginCookie.setMaxAge(60 * 60);
+                response.addCookie(LoginCookie);
+                response.sendRedirect("adminchampions.jsp");
+        	}
         } else {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
             PrintWriter out = response.getWriter();

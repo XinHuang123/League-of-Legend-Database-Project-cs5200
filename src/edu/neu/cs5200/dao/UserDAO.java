@@ -40,6 +40,23 @@ public Boolean findUserByUsernamePassword(String username, String password) {
 		return false;
 }
 
+public int findUserByRole(String username) {
+	
+
+		User user = em.find(User.class, username);
+		if (user.getRole().equals("normal")) {
+			return 1;
+		}
+		else if(user.getRole().equals("admin"))
+		{
+			return 2;
+		}
+		else
+			{
+			return 0;
+			}
+}
+
 	
 	//createUser
 	public User createUser(User user)
@@ -80,14 +97,15 @@ public Boolean findUserByUsernamePassword(String username, String password) {
 		}
 
 	public static void main(String[] args) {
-		//UserDAO dao=new UserDAO();
+		UserDAO dao=new UserDAO();
+		int a=dao.findUserByRole("hello");
 		//boolean a=dao.findUserByUsernamePassword("hello", "123");
 		//User user1=new User(null,"Annie");
 		//user=dao.readUserByUserid(1);
 		//List<User> user=dao.readAllUsers();
 		//for(User users:user)
 		//{
-		//	System.out.println(a);
+			System.out.println(a);
 		//}
 	
 

@@ -14,6 +14,7 @@ public class User {
 	@Id	
 	private String username;//primary key
 	private String password;
+	private String role;
 	//@ManyToOne(fetch=FetchType.LAZY)
 	//@JoinColumn(name="id")
 	//private Champion champion;
@@ -25,6 +26,12 @@ public class User {
 	//	this.champion = champion;
 	//}
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -39,10 +46,11 @@ public class User {
 	}
 	
 	
-	public User(String username, String password) {
+	public User(String username, String password, String role) {
 		super();
 		this.username=username;
 		this.password=password;
+		this.role=role;
 		//this.champion=champion;
 	}
 	public User() {

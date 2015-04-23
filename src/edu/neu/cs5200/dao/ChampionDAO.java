@@ -17,7 +17,7 @@ public class ChampionDAO {
 	EntityManager em = factory.createEntityManager();
 	
 	//createChampion
-	private Champion createChampion(Champion champion) {
+	public Champion createChampion(Champion champion) {
 		em.getTransaction().begin();		
 		em.persist(champion);
 		em.getTransaction().commit();

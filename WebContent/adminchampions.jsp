@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="edu.neu.cs5200.dao.*, edu.neu.cs5200.models.*, java.net.URLEncoder"%>
+    pageEncoding="ISO-8859-1" import="edu.neu.cs5200.dao.*, edu.neu.cs5200.models.*, java.net.URLEncoder, java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,32 +22,34 @@ body {
     String title  = request.getParameter("title");
     String name = request.getParameter("name");
     
-    
-   
-    
-   
-    /*
+    if("create".equals(action))
+    {
+        Champion champion = new Champion();
+        champion.setTitle(title);
+        champion.setName(name);        
+        championDAO.createChampion(champion);
+    }
     else if("delete".equals(action))
     {
         int idInt = Integer.parseInt(id);
-        movieDAO.deleteMovie(idInt);   
+        championDAO.deleteChampion(idInt);   
     }
     else if("update".equals(action))
     {
         int idInt = Integer.parseInt(id);
-        Movie movie = new Movie();
-        movie.setTitle(title);
-        movie.setPoster(poster);
-        movie.setMovieId(movieId);
-        movieDAO.updateMovie(idInt, movie);
+        Champion champion = new Champion();
+        champion.setTitle(title);
+        champion.setName(name);       
+        championDAO.updateChampion(champion);
     }
     
-    */
-   //Champion champions = championDAO.readChampionByName(name);
+    //int idInt = Integer.parseInt(id);
+    //Champion champion=championDAO.readChampionById(idInt);
+    //List<Champion> champions = championDAO.findAllMovies();
  
     %>
     
-    <form action="champions.jsp">
+    <form action="adminchampions.jsp">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -60,9 +62,10 @@ body {
                 <th><input class="form-control" name="id" placeholder="plz type id" value="<%=id%>" /></th>
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>               
-                <th>
-                 
+                <th>                 
                     <button class="btn btn-primary" name="action" value="search">Search</button>
+                    <button class="btn btn-success" name="action" value="create">Add</button>
+                    <button class="btn btn-primary" name="action" value="update">Update</button>
                 </th>
             </tr>
         </thead>
@@ -125,6 +128,10 @@ body {
                 
              	%>           
                 <td><img src="<%=url %>"/></td>
+                <td>
+                    <a class="btn btn-danger" href="adminchampions.jsp?action=delete&id=<%=champion.getId() %>">Delete</a>
+                    <a class="btn btn-warning" href="adminchampions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>">Select</a>
+                </td>
             </tr>
    <%
     }
