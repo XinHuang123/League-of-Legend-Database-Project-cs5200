@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
+import edu.neu.cs5200.dao.*;
 import edu.neu.cs5200.models.*;
 
 
@@ -93,8 +93,15 @@ public class ChampionDAO {
 		//List<Champion> champion=dao.readAllChampions();
 		//for(Champion champions:champion)
 		//{
+		  UserDAO userdao=new UserDAO();
+		  ChampionDAO championDAO=new ChampionDAO();
+		  User users=userdao.readUserByUsername("XinHuang");
+		  Champion championid=users.getChampionid();
+		  Integer chid=championid.getId();
+		  Champion champions = championDAO.readChampionById(chid);
 		
-			System.out.println(champion.getComments().size());
+		
+			System.out.println(champions.getTitle());
 		//}
 		
 

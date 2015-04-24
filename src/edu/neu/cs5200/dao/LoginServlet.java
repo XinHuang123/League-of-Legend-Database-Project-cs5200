@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
                 // setting cookie to expiry in 60 mins
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
-                response.sendRedirect("champions.jsp");	
+                response.sendRedirect("Homepage.html");	
         	}
         	else if(dao.findUserByRole(User)==2)
         	{
@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 // setting cookie to expiry in 60 mins
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
-                response.sendRedirect("adminchampions.jsp");
+                response.sendRedirect("admin_Homepage.html");
         	}
         } 
         else if(dao.readUserByUsername(User)==null)

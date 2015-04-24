@@ -64,6 +64,7 @@
 		<%
 			for(Comment comment : comments)
 			{
+				
 		%>	<tr>
 		        <th>&nbsp;</th>
 				<td><%= comment.getCommentid() %></td>

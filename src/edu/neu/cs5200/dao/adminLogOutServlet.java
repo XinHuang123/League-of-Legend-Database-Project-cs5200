@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class LogOutServlet
  */
  
-@WebServlet("/LogOutServlet")
-public class LogOutServlet extends HttpServlet {
+@WebServlet("/adminLogOutServlet")
+public class adminLogOutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final String logout = "logout";
     
