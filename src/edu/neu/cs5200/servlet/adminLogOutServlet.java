@@ -1,4 +1,4 @@
-package edu.neu.cs5200.dao;
+package edu.neu.cs5200.servlet;
 
 import java.io.IOException;
 

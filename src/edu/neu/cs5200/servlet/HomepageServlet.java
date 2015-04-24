@@ -1,4 +1,4 @@
-package edu.neu.cs5200.dao;
+package edu.neu.cs5200.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,8 +16,8 @@ import edu.neu.cs5200.dao.*;
 
 
  
-@WebServlet("/admin_HomepageServlet")
-public class admin_HomepageServlet extends HttpServlet {
+@WebServlet("/HomepageServlet")
+public class HomepageServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final String search = "search";
     private final String profile = "profile";
@@ -38,7 +38,7 @@ public class admin_HomepageServlet extends HttpServlet {
                 // setting cookie to expiry in 60 mins
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
-                response.sendRedirect("adminchampions.jsp");	
+                response.sendRedirect("champions.jsp");	
         	
         } 
         else if("profile".equals(action))
@@ -47,7 +47,7 @@ public class admin_HomepageServlet extends HttpServlet {
             // setting cookie to expiry in 60 mins
             LoginCookie.setMaxAge(60 * 60);
             response.addCookie(LoginCookie);
-        	response.sendRedirect("adminprofile.jsp");
+        	response.sendRedirect("profile.jsp");
         }
         
  
