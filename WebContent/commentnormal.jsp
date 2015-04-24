@@ -41,7 +41,7 @@
 		<form action="commentnormal.jsp">
 		<table class="table table-striped">
 			<tr>
-			    <th>ChampionId</th>
+			    <th>Champion Name</th>
 			    <th>CommentId</th>
 				<th>Content</th>
 				
@@ -60,8 +60,10 @@
 		<%
 			for(Comment comment : comments)
 			{
+		Champion yingxiong=comment.getChampionid();
+				
 		%>	<tr>
-		        <th>&nbsp;</th>
+		        <th><%= yingxiong.getName() %></th>
 				<td><%= comment.getCommentid() %></td>
 				<td><%= comment.getContent() %></td>				
 				<td>
