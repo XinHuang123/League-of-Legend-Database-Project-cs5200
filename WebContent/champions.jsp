@@ -92,9 +92,9 @@ body {
       User user=userdao.readUserByUsername(username);
         %>
             <tr>
-                <td><%=champion.getId()%></td>
+                <td><a href="commentnormal.jsp?id=<%=champion.getId()%>"><%=champion.getId()%></td>
                 <td><%=champion.getTitle() %></td>
-                <td><a href="championsDetails.jsp?id=<%=champion.getId()%>"><%=champion.getName() %></a></td>     
+                <td><a href="championsDetails.jsp?id=<%=champion.getId()%>"><%=champion.getName() %></a></td>      
                 <%
                
                 final  String FIND_IMAGE_BY_NAME="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/champion_name.png ";   

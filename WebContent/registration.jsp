@@ -19,13 +19,14 @@
     String comment  = request.getParameter("comment");
     String username = request.getParameter("username");
     String password = request.getParameter("password");
-    
+    String role=request.getParameter("role");
     if("create".equals(action))
     {
     	User user = new User();
     	
     	user.setUsername(username);
     	user.setPassword(password);
+    	user.setRole(role);
     	userDAO.createUser(user);
     }
     else if("delete".equals(action))
@@ -40,7 +41,7 @@
         
     	user.setUsername(username);
     	user.setPassword(password);
-    	
+    	user.setRole(role);
         userDAO.UpdateUser(user);
     }
     
@@ -55,12 +56,13 @@
                                
                 <th>Username</th>
                 <th>Password</th>
-                
+                <th>Role</th>
             </tr>
             <tr>
                           
                 <th><input class="form-control" name="username" placeholder="username" value="<%=username%>"/></th>
                 <th><input class="form-control" name="password" placeholder="password" value="<%=password%>"/></th>
+                 <th><input class="form-control" name="role" placeholder="role" value="<%=role%>"/></th>
                  
                 <th>
                     <button class="btn btn-success" name="action" value="create">Add</button>
@@ -75,12 +77,12 @@
         %>
             <tr>
                 
-                <td><%=user.getUsername() %></td>
+                <td><a href="login.html"><%=user.getUsername() %></td>
                 <td><%=user.getPassword() %></td>
-                
+                <td><%=user.getRole() %></td>
                 <td>
-                    
-                    <a class="btn btn-warning" href="registration.jsp?action=select&username=<%=user.getUsername()%>&password=<%=user.getPassword()%>">Select</a>
+                    <a class="btn btn-danger" href="registration.jsp?action=delete&username=<%=user.getUsername() %>">Delete</a>
+                    <a class="btn btn-warning" href="registration.jsp?action=select&username=<%=user.getUsername()%>&password=<%=user.getPassword()%>&role=<%=user.getRole()%>">Select</a>
                 </td>
             </tr>
         <%

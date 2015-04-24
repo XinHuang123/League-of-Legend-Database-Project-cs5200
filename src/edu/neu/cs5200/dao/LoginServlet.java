@@ -51,11 +51,21 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(LoginCookie);
                 response.sendRedirect("adminchampions.jsp");
         	}
-        } else {
+        } 
+        else if(dao.readUserByUsername(User)==null)
+        {
+        	Cookie LoginCookie = new Cookie("User", User);
+            // setting cookie to expiry in 60 mins
+            LoginCookie.setMaxAge(60 * 60);
+            response.addCookie(LoginCookie);
+        	response.sendRedirect("registration.jsp");
+        }
+        else {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
             PrintWriter out = response.getWriter();
             out.println("<font color=red>Username and password combination not found!</font>\n");
             rd.include(request, response);
+            
         }
  
     }
