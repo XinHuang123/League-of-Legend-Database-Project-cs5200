@@ -20,6 +20,7 @@
 			String championid=request.getParameter("championid");
 			String content   = request.getParameter("content");
 			String inputid=request.getParameter("inputid");
+			String back=request.getParameter("back");
 					
 			if("create".equals(action))
 			{
@@ -71,6 +72,10 @@
 				<td><%= comment.getContent() %></td>				
 				<td>
 					<a href="comment.jsp?action=delete&commentid=<%= comment.getCommentid() %>" class="btn btn-danger">Delete</a>
+				</td>
+				<td>
+				<a href="admin_Homepage.html" class="btn btn-danger">Back</a>
+				
 				</td>
 			</tr>
 		<%
