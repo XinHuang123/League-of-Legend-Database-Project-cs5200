@@ -20,11 +20,12 @@ public class Champion {
 		private String key;
 		private String blurb;
 		private String lore;
-		
-		
+				
 		@OneToMany(mappedBy="championid")  //point to user class(private String champion)
 		private List<User> users; //navigate to user
 	    
+		@OneToMany(mappedBy="championid")
+	    private List<Comment> comments;
 		
 		public Integer getId() {
 			return id;
@@ -74,9 +75,12 @@ public class Champion {
 			this.users = users;
 		}
 		
-		
-
-		
+		public List<Comment> getComments() {
+			return comments;
+		}
+		public void setComments(List<Comment> comments) {
+			this.comments = comments;
+		}
 		public Champion() {
 			super();
 		}

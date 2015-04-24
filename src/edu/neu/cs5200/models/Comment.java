@@ -1,7 +1,5 @@
 package edu.neu.cs5200.models;
 
-import java.io.Serializable;
-
 import javax.persistence.*;
 
 
@@ -12,64 +10,42 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="comments")
-@NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
-public class Comment implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+public class Comment {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int commentid;
-
 	private String content;
-
-	
-	
-
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="commenter")
-	private User user;
-
+	@JoinColumn(name="championid")
+	private Champion championid;
+	public int getCommentid() {
+		return commentid;
+	}
+	public void setCommentid(int commentid) {
+		this.commentid = commentid;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Champion getChampionid() {
+		return championid;
+	}
+	public void setChampionid(Champion championid) {
+		this.championid = championid;
+	}
+	public Comment(int commentid, String content, Champion championid) {
+		super();
+		this.commentid = commentid;
+		this.content = content;
+		this.championid = championid;
+	}
 	public Comment() {
 		super();
 	}
 
-	public int getCommentid() {
-		return this.commentid;
-	}
-
-	public void setCommentid(int commentid) {
-		this.commentid = commentid;
-	}
-
-	public String getContent() {
-		return this.content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	
-	
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	
-
-	public Comment(User user, String content) {
-		super();
-		this.user = user;
-		this.content = content;
-		
-	}
-
-	
 	
 }

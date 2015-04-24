@@ -99,7 +99,7 @@ body {
         User user=userdao.readUserByUsername(username);
         %>
             <tr>
-                <td><%=champion.getId()%></td>
+                <td><a href="comment.jsp?id=<%=champion.getId()%>"><%=champion.getId()%></td>
                 <td><%=champion.getTitle() %></td>
                 <td><a href="championsDetails.jsp?id=<%=champion.getId()%>"><%=champion.getName() %></a></td>     
                 <%

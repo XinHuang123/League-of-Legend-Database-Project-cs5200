@@ -77,9 +77,9 @@ public class ChampionDAO {
 		//for(int i=74;i<77;i++)
 		//{
 		ChampionDAO dao=new ChampionDAO();
-		User user=new User("messi","luck","hello",null);
-		dao.addUser(1,user);
-		Champion champion=dao.readChampionById(1);			
+		//User user=new User("messi","luck","hello",null);
+		//dao.addUser(1,user);
+		Champion champion=dao.readChampionById(2);			
 
 		//Champion champion=dao.readChampionByName("Annie");
 		//Champion champion=dao.readChampionById(1);
@@ -94,7 +94,7 @@ public class ChampionDAO {
 		//for(Champion champions:champion)
 		//{
 		
-			System.out.println(champion.getUsers().size());
+			System.out.println(champion.getComments().size());
 		//}
 		
 
