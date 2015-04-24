@@ -23,6 +23,9 @@ public class Champion {
 				
 		@OneToMany(mappedBy="championid")  //point to user class(private String champion)
 		private List<User> users; //navigate to user
+		
+		@OneToMany(mappedBy="championid")  //point to user class(private String champion)
+		private List<admin_User> adminusers; //navigate to user
 	    
 		@OneToMany(mappedBy="championid")
 	    private List<Comment> comments;

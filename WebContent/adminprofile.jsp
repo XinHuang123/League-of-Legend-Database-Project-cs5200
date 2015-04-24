@@ -16,10 +16,19 @@ body {
     <div class="container">
     <h1>Liked Champion</h1>
     
-    <%
+   <%
     ChampionDAO championDAO = new ChampionDAO();
     UserDAO userdao=new UserDAO();
     String username=request.getParameter("username");
+    String action = request.getParameter("action");
+    String like = request.getParameter("like");
+    if("like".equals(action))
+    {
+    	
+    }
+   
+    
+ 
     %>
     
     
@@ -32,6 +41,7 @@ body {
                 <th>Name</th>
                 
             </tr>
+             
         </thead>
         <tbody>
   <%  

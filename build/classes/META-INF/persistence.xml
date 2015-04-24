@@ -5,6 +5,7 @@
 	<class>edu.neu.cs5200.models.Champion</class>
 	<class>edu.neu.cs5200.models.User</class>
 		<class>edu.neu.cs5200.models.Comment</class>
+		<class>edu.neu.cs5200.models.admin_User</class>
 	
 		<properties>
 			<property name="eclipselink.jdbc.password" value="" />
