@@ -39,20 +39,6 @@
   	<servlet-name>LogOutServlet</servlet-name>
   	<url-pattern>/logOutAction</url-pattern>
   </servlet-mapping>
-  <servlet>
-  	<servlet-name>SearchUserServlet</servlet-name>
-  	<servlet-class>api.SearchUserServlet</servlet-class>
-  </servlet>
-    <servlet-mapping>
-  	<servlet-name>SearchUserServlet</servlet-name>
-  	<url-pattern>/searchUserAction</url-pattern>
-  </servlet-mapping>
-  <servlet>
-  	<servlet-name>FollowUserServlet</servlet-name>
-  	<servlet-class>api.FollowUserServlet</servlet-class>
-  </servlet>
-    <servlet-mapping>
-  	<servlet-name>FollowUserServlet</servlet-name>
-  	<url-pattern>/followUserAction</url-pattern>
-  </servlet-mapping>
+ 
+  
 </web-app>

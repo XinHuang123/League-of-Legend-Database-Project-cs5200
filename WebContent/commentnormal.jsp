@@ -20,7 +20,8 @@
 			String championid=request.getParameter("championid");
 			String content   = request.getParameter("content");
 			String inputid=request.getParameter("inputid");
-			String back=request.getParameter("back");		
+			String back=request.getParameter("back");
+					
 			if("create".equals(action))
 			{
 				Champion champion=new Champion();
@@ -60,12 +61,13 @@
 		<%
 			for(Comment comment : comments)
 			{
-		Champion yingxiong=comment.getChampionid();
+				Champion yingxiong=comment.getChampionid();
 				
 		%>	<tr>
 		        <th><%= yingxiong.getName() %></th>
 				<td><%= comment.getCommentid() %></td>
 				<td><%= comment.getContent() %></td>				
+				
 				<td>
 				<a href="Homepage.jsp" class="btn btn-danger">Back</a>
 				

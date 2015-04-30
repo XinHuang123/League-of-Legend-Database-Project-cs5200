@@ -30,22 +30,20 @@ public class HomepageServlet extends HttpServlet {
         String search = request.getParameter("search");
         String profile = request.getParameter("profile");
         String action = request.getParameter("action");
-        String User = request.getParameter("User");
+       
      //   if (userID.equals(User) && password.equals(pwd)) {
         if("search".equals(action)) {
         	
-        		Cookie LoginCookie = new Cookie("User", User);
-        	
-                // setting cookie to expiry in 60 mins
-        		
-                LoginCookie.setMaxAge(60 * 60);
-                response.addCookie(LoginCookie);
-                response.sendRedirect("champions.jsp");	
-        	
-        } 
+    		Cookie LoginCookie = new Cookie("search", search);
+            // setting cookie to expiry in 60 mins
+            LoginCookie.setMaxAge(60 * 60);
+            response.addCookie(LoginCookie);
+            response.sendRedirect("champions.jsp");	
+    	
+    } 
         else if("profile".equals(action))
         {
-        	Cookie LoginCookie = new Cookie("User", User);
+        	Cookie LoginCookie = new Cookie("profile", profile);
             // setting cookie to expiry in 60 mins
             LoginCookie.setMaxAge(60 * 60);
             response.addCookie(LoginCookie);
