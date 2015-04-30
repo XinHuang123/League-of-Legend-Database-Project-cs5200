@@ -14,15 +14,20 @@ body {
 </style>
 </head>
     <div class="container">
-    <h1>Liked Champion</h1>
+    
     
     <%
     ChampionDAO championDAO = new ChampionDAO();
     UserDAO userdao=new UserDAO();
     String username=(String)session.getAttribute( "username" ) ;
     %>
+    <div>
+    <h1>User Information</h1>
+    Username:<%=username %>
     
-    
+    </div>
+   <div> 
+   <h2>Liked Champion</h2>
     <form action="adminprofile.jsp">
     <table class="table table-striped">
         <thead>
@@ -46,7 +51,7 @@ body {
                 <td><%=champions.getName() %></a></td>      
                
             </tr>
-    
+   
         </tbody>
     </table>
     </form>
