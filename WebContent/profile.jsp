@@ -28,7 +28,7 @@ body {
     </div>
    <div> 
    <h2>Liked Champion</h2>
-    <form action="adminprofile.jsp">
+    <form action="profile.jsp">
     <table class="table table-striped">
         <thead>
             <tr>

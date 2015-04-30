@@ -14,24 +14,20 @@ body {
 </style>
 </head>
     <div class="container">
-    <h1>Liked Champion</h1>
     
-   <%
+    
+    <%
     ChampionDAO championDAO = new ChampionDAO();
     UserDAO userdao=new UserDAO();
-    String username=request.getParameter("username");
-    String action = request.getParameter("action");
-    String like = request.getParameter("like");
-    if("like".equals(action))
-    {
-    	
-    }
-   
-    
- 
+    String username=(String)session.getAttribute( "username" ) ;
     %>
+    <div>
+    <h1>User Information</h1>
+    Username:<%=username %>
     
-    
+    </div>
+   <div> 
+   <h2>Liked Champion</h2>
     <form action="adminprofile.jsp">
     <table class="table table-striped">
         <thead>
@@ -39,13 +35,12 @@ body {
                 <th>ID</th>
                 <th>Title</th>
                 <th>Name</th>
-                
+               
             </tr>
-             
         </thead>
         <tbody>
   <%  
-  User users=userdao.readUserByUsername("XinHuang");
+  User users=userdao.readUserByUsername(username);
   Champion championid=users.getChampionid();
   Integer chid=championid.getId();
   Champion champions = championDAO.readChampionById(chid);
@@ -56,7 +51,7 @@ body {
                 <td><%=champions.getName() %></a></td>      
                
             </tr>
-    
+   
         </tbody>
     </table>
     </form>
