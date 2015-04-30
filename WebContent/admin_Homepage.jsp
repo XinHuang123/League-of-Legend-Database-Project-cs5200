@@ -1,8 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="edu.neu.cs5200.dao.*, edu.neu.cs5200.models.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Homepage</title>
+<%
+       		UserDAO dao = UserDAO.getInstance();
+        	User user = new User();
+            String userName = null;
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("User")) {
+                        userName = cookie.getValue();
+                    	user = dao.readUserByUsername(userName);
+                    	//System.out.println(userName);
+                    	break;
+                    }
+                }
+            }
+            if (userName == null)
+                response.sendRedirect("login.html");
+            session.setAttribute( "username", userName );
+        %>
+<title><%= user.getUsername()%>'s Homepage</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <style type="text/css">
 body {
@@ -19,6 +40,9 @@ body {
     <h1>League Of Legends</h1>
         <br> <br>
         <form action="admin_HomepageServlet" method="post">
+        <h1><%= user.getUsername()%>`s Homepage</h1>
+         <A HREF="adminchampions.jsp"></A>
+           <A HREF="adminprofile.jsp"></A>
            <button class="btn btn-success" name="action" value="search">Search</button>
             <br><br> 
            <button class="btn btn-success" name="action" value="profile">profile</button>

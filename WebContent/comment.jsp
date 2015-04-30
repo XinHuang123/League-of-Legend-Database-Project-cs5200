@@ -75,7 +75,7 @@
 					<a href="comment.jsp?action=delete&commentid=<%= comment.getCommentid() %>" class="btn btn-danger">Delete</a>
 				</td>
 				<td>
-				<a href="admin_Homepage.html" class="btn btn-danger">Back</a>
+				<a href="admin_Homepage.jsp" class="btn btn-danger">Back</a>
 				
 				</td>
 			</tr>

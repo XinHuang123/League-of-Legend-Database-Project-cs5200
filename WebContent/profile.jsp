@@ -19,7 +19,7 @@ body {
     <%
     ChampionDAO championDAO = new ChampionDAO();
     UserDAO userdao=new UserDAO();
-    String username=request.getParameter("username");
+    String username=(String)session.getAttribute( "username" ) ;
     %>
     
     
@@ -35,7 +35,7 @@ body {
         </thead>
         <tbody>
   <%  
-  User users=userdao.readUserByUsername("showing");
+  User users=userdao.readUserByUsername(username);
   Champion championid=users.getChampionid();
   Integer chid=championid.getId();
   Champion champions = championDAO.readChampionById(chid);

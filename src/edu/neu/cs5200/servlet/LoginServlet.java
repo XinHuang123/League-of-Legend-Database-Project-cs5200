@@ -31,8 +31,10 @@ public class LoginServlet extends HttpServlet {
         // get request parameters for userID and password
         String User = request.getParameter("User");
         String pwd = request.getParameter("Password");
-        String role=request.getParameter("role");
- 
+        String role=request.getParameter("role");       
+       
+       
+    
      //   if (userID.equals(User) && password.equals(pwd)) {
         if(dao.findUserByUsernamePassword(User, pwd)) {
         	if(dao.findUserByRole(User)==1)
@@ -41,7 +43,7 @@ public class LoginServlet extends HttpServlet {
                 // setting cookie to expiry in 60 mins
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
-                response.sendRedirect("Homepage.html");	
+                response.sendRedirect("Homepage.jsp");	
         	}
         	else if(dao.findUserByRole(User)==2)
         	{
@@ -49,15 +51,12 @@ public class LoginServlet extends HttpServlet {
                 // setting cookie to expiry in 60 mins
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
-                response.sendRedirect("admin_Homepage.html");
+                response.sendRedirect("admin_Homepage.jsp");
         	}
         } 
         else if(dao.readUserByUsername(User)==null)
         {
-        	Cookie LoginCookie = new Cookie("User", User);
-            // setting cookie to expiry in 60 mins
-            LoginCookie.setMaxAge(60 * 60);
-            response.addCookie(LoginCookie);
+        	
         	response.sendRedirect("registration.jsp");
         }
         else {

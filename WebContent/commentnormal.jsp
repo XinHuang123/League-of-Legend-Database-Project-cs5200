@@ -67,7 +67,7 @@
 				<td><%= comment.getCommentid() %></td>
 				<td><%= comment.getContent() %></td>				
 				<td>
-				<a href="Homepage.html" class="btn btn-danger">Back</a>
+				<a href="Homepage.jsp" class="btn btn-danger">Back</a>
 				
 				</td>
 			</tr>

@@ -30,12 +30,14 @@ public class HomepageServlet extends HttpServlet {
         String search = request.getParameter("search");
         String profile = request.getParameter("profile");
         String action = request.getParameter("action");
- 
+        String User = request.getParameter("User");
      //   if (userID.equals(User) && password.equals(pwd)) {
         if("search".equals(action)) {
         	
-        		Cookie LoginCookie = new Cookie("search", search);
+        		Cookie LoginCookie = new Cookie("User", User);
+        	
                 // setting cookie to expiry in 60 mins
+        		
                 LoginCookie.setMaxAge(60 * 60);
                 response.addCookie(LoginCookie);
                 response.sendRedirect("champions.jsp");	
@@ -43,7 +45,7 @@ public class HomepageServlet extends HttpServlet {
         } 
         else if("profile".equals(action))
         {
-        	Cookie LoginCookie = new Cookie("profile", profile);
+        	Cookie LoginCookie = new Cookie("User", User);
             // setting cookie to expiry in 60 mins
             LoginCookie.setMaxAge(60 * 60);
             response.addCookie(LoginCookie);

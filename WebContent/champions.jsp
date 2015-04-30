@@ -10,7 +10,6 @@
 body {
     background-image: url('http://crunchify.com/bg.png');
 }
-
 </style>
 </head>
     <div class="container">
@@ -18,7 +17,7 @@ body {
     
     <%
     ChampionDAO championDAO = new ChampionDAO();
-    String username=request.getParameter("username");
+    String username=(String)session.getAttribute( "username" ) ;
     String action = request.getParameter("action");
     String id = request.getParameter("id");
     String title  = request.getParameter("title");
@@ -74,7 +73,7 @@ body {
                 <th><input class="form-control" name="id" placeholder="plz type id" value="<%=id%>" /></th>
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>  
-                <th><input class="form-control" name="username" placeholder="plz type username"value="<%=username%>"/></th>              
+                <th><%= session.getAttribute( "username" ) %></th>              
                 <th>
                  
                     <button class="btn btn-success" name="action" value="search">Search</button>

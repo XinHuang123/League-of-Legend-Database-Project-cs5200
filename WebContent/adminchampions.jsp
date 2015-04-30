@@ -19,7 +19,7 @@ body {
     ChampionDAO championDAO = new ChampionDAO();
    
     String action = request.getParameter("action");
-    String username=request.getParameter("username");
+    String username=(String)session.getAttribute( "username" ) ;
     String id = request.getParameter("id");
     String title  = request.getParameter("title");
     String name = request.getParameter("name");
@@ -80,7 +80,7 @@ body {
                 <th><input class="form-control" name="id" placeholder="plz type id" value="<%=id%>" /></th>
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>   
-                <th><input class="form-control" name="username" placeholder="plz type username"  value="<%=username%>"/></th>             
+                 <th><%= session.getAttribute( "username" ) %></th>                
                 <th>                 
                     <button class="btn btn-success" name="action" value="search">Search</button>
                     <button class="btn btn-warning" name="action" value="create">Add</button>
