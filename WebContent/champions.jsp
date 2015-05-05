@@ -22,7 +22,7 @@ body {
     String id = request.getParameter("id");
     String title  = request.getParameter("title");
     String name = request.getParameter("name");
-    
+    String back=request.getParameter("back");
     
    
     if("like".equals(action))
@@ -34,8 +34,14 @@ body {
     	User user=userdao.readUserByUsername(username);
     	String password=user.getPassword();
     	String role=user.getRole();
-		user=new User(username,password,role,champion);
+    	String firstname=user.getFirstname();
+    	String lastname=user.getLastname();
+    	String dateofbirth=user.getDateofbirth();
+		user=new User(username,password,role,champion,firstname,lastname,dateofbirth);
 		userdao.UpdateUser(user);
+    	//User user1=userdao.readUserByUsername(username);
+    	//ChampionDAO championdao=new ChampionDAO();
+    	//championdao.addUser(idInt, user1);
     }
    
     /*
@@ -146,6 +152,10 @@ body {
                <a class="btn btn-primary" href="champions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>&username=<%=user.getUsername()%>">Select</a>
                 
                 </td>
+                <td>
+				<a href="admin_Homepage.jsp" class="btn btn-danger">Back</a>
+				
+				</td>
             </tr>
    <%
     }

@@ -19,6 +19,7 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="championid")
 	private Champion championid;
+	
 	public int getCommentid() {
 		return commentid;
 	}

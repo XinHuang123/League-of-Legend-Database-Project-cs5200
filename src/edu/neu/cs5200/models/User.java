@@ -15,6 +15,9 @@ public class User {
 	private String username;//primary key
 	private String password;
 	private String role;
+	private String firstname;
+	private String lastname;
+	private String dateofbirth;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="championid")  // point to user table in database(cloumn: championid)
@@ -34,6 +37,30 @@ public class User {
 		return role;
 	}
 	
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(String dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
 	public void setRole(String role) {
 		this.role = role;
 	}
@@ -57,13 +84,16 @@ public class User {
 		this.championid = championid;
 	}
 	
-	public User(String username, String password, String role, Champion championid) {
+	public User(String username, String password, String role, Champion championid, String firstname, String lastname, String dateofbirth) {
 		super();
 		this.username=username;
 		this.password=password;
 		this.role=role;
 		this.championid=championid;
 		//this.champion=champion;
+		this.firstname=firstname;
+		this.lastname=lastname;
+		this.dateofbirth=dateofbirth;
 	}
 	public User() {
 		super();

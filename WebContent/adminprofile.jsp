@@ -19,16 +19,29 @@ body {
     <%
     ChampionDAO championDAO = new ChampionDAO();
     UserDAO userdao=new UserDAO();
-    String username=(String)session.getAttribute( "username" ) ;
+   String username=(String)session.getAttribute( "username" ) ;
+   //String username="showing";
+    User user=userdao.readUserByUsername(username);
+    
     %>
     <div>
     <h1>User Information</h1>
     Username:<%=username %>
+    <br><br> 
+    Role:<%=user.getRole() %>
+    <br><br> 
+    Firstname:<%=user.getFirstname() %>
+    <br><br> 
+    Lastname:<%=user.getLastname() %>
+    <br><br> 
+    Date of Birth:<%=user.getDateofbirth() %>
+ 
     
     </div>
+  
    <div> 
    <h2>Liked Champion</h2>
-    <form action="adminprofile.jsp">
+    <form action="profile.jsp">
     <table class="table table-striped">
         <thead>
             <tr>

@@ -17,16 +17,20 @@
 		
 			String action = request.getParameter("action");
 			String commentid  = request.getParameter("commentid");
-			String championid=request.getParameter("championid");
+			String id=request.getParameter("id");
 			String content   = request.getParameter("content");
 			String inputid=request.getParameter("inputid");
 			String back=request.getParameter("back");
-					
+			
+			int id123 = Integer.parseInt(id);
+			ChampionDAO championDAO=new ChampionDAO();
+			 String Championname=championDAO.readChampionById(id123).getName();
+			
 			if("create".equals(action))
 			{
 				Champion champion=new Champion();
 				ChampionDAO championdao=new ChampionDAO();
-				Integer chid=Integer.parseInt(championid);
+				Integer chid=Integer.parseInt(id);
 				champion=championdao.readChampionById(chid);
 				Integer id1 = Integer.parseInt(inputid);
 				Comment comment = new Comment(id1,content,champion);
@@ -42,14 +46,16 @@
 		<form action="commentnormal.jsp">
 		<table class="table table-striped">
 			<tr>
+			    <th>Champion Id</th>
 			    <th>Champion Name</th>
 			    <th>CommentId</th>
 				<th>Content</th>
 				
 			</tr>
 			<tr>
-			    <th><input class="form-control" name="championid" placeholder="plz type championid" value="<%=championid%>" /></th>
-			    <th><input class="form-control" name="inputid" placeholder="plz type commentid" value="<%=inputid%>" /></th>
+			    <th><input class="form-control" name="id" placeholder="plz type championid" value="<%=id%>" /></th>
+			    <th><%=Championname %></th>
+		        <th><input class="form-control" name="inputid" placeholder="plz type commentid" value="<%=inputid%>" /></th>
 				<th><input class="form-control" name="content" placeholder="plz type content" value="<%=content%>" /></th>
 				
 				
@@ -64,6 +70,7 @@
 				Champion yingxiong=comment.getChampionid();
 				
 		%>	<tr>
+		        <th><%= yingxiong.getId() %></th>
 		        <th><%= yingxiong.getName() %></th>
 				<td><%= comment.getCommentid() %></td>
 				<td><%= comment.getContent() %></td>				
@@ -72,6 +79,7 @@
 				<a href="Homepage.jsp" class="btn btn-danger">Back</a>
 				
 				</td>
+				
 			</tr>
 		<%
 			}

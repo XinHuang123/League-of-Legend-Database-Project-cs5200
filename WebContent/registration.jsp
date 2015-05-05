@@ -20,6 +20,10 @@
     String username = request.getParameter("username");
     String password = request.getParameter("password");
     String role=request.getParameter("role");
+    String firstname=request.getParameter("firstname");
+    String lastname=request.getParameter("lastname");
+    String dateofbirth=request.getParameter("dateofbirth");
+    
     if("create".equals(action))
     {
     	User user = new User();
@@ -27,6 +31,9 @@
     	user.setUsername(username);
     	user.setPassword(password);
     	user.setRole(role);
+    	user.setFirstname(firstname);
+    	user.setLastname(lastname);
+    	user.setDateofbirth(dateofbirth);
     	userDAO.createUser(user);
     }
     else if("delete".equals(action))
@@ -42,6 +49,9 @@
     	user.setUsername(username);
     	user.setPassword(password);
     	user.setRole(role);
+    	user.setFirstname(firstname);
+    	user.setLastname(lastname);
+    	user.setDateofbirth(dateofbirth);
         userDAO.UpdateUser(user);
     }
     
@@ -57,12 +67,20 @@
                 <th>Username</th>
                 <th>Password</th>
                 <th>Role</th>
+                <th>Firstname</th>
+                <th>Lastname</th>    
+                <th>Dateofbirth</th>            
             </tr>
             <tr>
                           
                 <th><input class="form-control" name="username" placeholder="username" value="<%=username%>"/></th>
                 <th><input class="form-control" name="password" placeholder="password" value="<%=password%>"/></th>
-                 <th><input class="form-control" name="role" placeholder="role" value="<%=role%>"/></th>
+                <th><input class="form-control" name="role" placeholder="role" value="<%=role%>"/></th>
+                <th><input class="form-control" name="firstname" placeholder="firstname" value="<%=firstname%>"/></th>
+                <th><input class="form-control" name="lastname" placeholder="lastname" value="<%=lastname%>"/></th>
+                <th><input class="form-control" name="dateofbirth" placeholder="dateofbirth" value="<%=dateofbirth%>"/></th>
+                
+           
                  
                 <th>
                     <button class="btn btn-success" name="action" value="create">Add</button>
@@ -82,7 +100,7 @@
                 <td><%=user.getRole() %></td>
                 <td>
                     <a class="btn btn-danger" href="registration.jsp?action=delete&username=<%=user.getUsername() %>">Delete</a>
-                    <a class="btn btn-warning" href="registration.jsp?action=select&username=<%=user.getUsername()%>&password=<%=user.getPassword()%>&role=<%=user.getRole()%>">Select</a>
+                    <a class="btn btn-warning" href="registration.jsp?action=select&username=<%=user.getUsername()%>&password=<%=user.getPassword()%>&role=<%=user.getRole()%>&firstname=<%=user.getFirstname()%>&lastname=<%=user.getLastname()%>&dateodbirth=<%=user.getDateofbirth()%>">Select</a>
                 </td>
             </tr>
         <%
