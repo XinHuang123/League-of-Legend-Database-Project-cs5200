@@ -92,7 +92,7 @@
 				
 		%>	<tr>
 		        <td><%= yingxiong.getId() %></td>
-		        <td><%= yingxiong.getName() %></td>
+		        <td><a href="championsDetails.jsp?id=<%=yingxiong.getId()%>"><%=yingxiong.getName()%></td>
 				<td><%= comment.getCommentid() %></td>
 				<td><%= comment.getContent() %></td>
 				<td><%=comment.getUsername() %></a></td>										
