@@ -1,30 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="edu.neu.cs5200.dao.*, edu.neu.cs5200.models.*, java.net.URLEncoder"%>
+    pageEncoding="ISO-8859-1" import="edu.neu.cs5200.dao.*, edu.neu.cs5200.models.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Login Successful</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>User Details</title>
 <style type="text/css">
 body {
     background-image: url('http://crunchify.com/bg.png');
 }
-
 </style>
 </head>
-    <div class="container">
-    
-    
-    <%
-    ChampionDAO championDAO = new ChampionDAO();
-    UserDAO userdao=new UserDAO();
-   String username=(String)session.getAttribute( "username" ) ;
-   //String username="showing";
-    User user=userdao.readUserByUsername(username);
-    
-    %>
+<body>
     <div>
+        <h1>User Details</h1>
+        <%
+        String username = request.getParameter("username");
+        UserDAO userdao=new UserDAO();
+        User user=userdao.readUserByUsername(username);
+        %>    
+        
+    </div>
+    
+ <div>
     <h1>User Information</h1>
     Username:<%=username %>
     <br><br> 
@@ -53,42 +51,16 @@ body {
         </thead>
         <tbody>
   <%  
-  User users=userdao.readUserByUsername(username);
-  Champion championid=users.getChampionid();
+
+  Champion championid=user.getChampionid();
   Integer chid=championid.getId();
+  ChampionDAO championDAO=new ChampionDAO();
   Champion champions = championDAO.readChampionById(chid);
         %>
             <tr>
                 <td><%=champions.getId()%></td>
                 <td><%=champions.getTitle() %></td>
                 <td><%=champions.getName() %></a></td>      
-               
-            </tr>
-   
-        </tbody>
-    </table>
-    </form>
-    </div>
-    <div>
-    <h3>Following User</h3>
-    <form action="profile.jsp">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Role</th>              
-            </tr>
-        </thead>
-        <tbody>
-  <%  
-  User user1=user.getUserid();
- 
-  
-        %>
-            <tr>
-                <td><%=user1.getUsername() %></a></td>
-                <td><%=user1.getRole()%></td>
-                     
                
             </tr>
    

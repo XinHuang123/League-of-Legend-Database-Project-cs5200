@@ -46,7 +46,9 @@ body {
           <h1><%= user.getUsername()%>`s Homepage</h1>
           <A HREF="champions.jsp"></A>
            <A HREF="profile.jsp"></A>
-           <button class="btn btn-success" name="action" value="search">Search</button>
+           <button class="btn btn-success" name="action" value="search">Search Champions</button>
+            <br><br> 
+            <button class="btn btn-success" name="action" value="searchuser">Search Users</button>
             <br><br> 
            <button class="btn btn-success" name="action" value="profile">Profile</button>
             <br><br>

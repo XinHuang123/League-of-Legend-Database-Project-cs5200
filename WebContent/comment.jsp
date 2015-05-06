@@ -14,7 +14,11 @@
 <body>
 	<div class="container">
 		<%
-			CommentDAO commentdao=new CommentDAO();
+		
+	
+						
+		String username=(String)session.getAttribute( "username" ) ;		
+		CommentDAO commentdao=new CommentDAO();
 		
 			String action = request.getParameter("action");
 			String commentid = request.getParameter("commentid");
@@ -23,9 +27,12 @@
 			String inputid=request.getParameter("inputid");
 			String back=request.getParameter("back");
 			
-			int id123 = Integer.parseInt(id);
-			ChampionDAO championDAO=new ChampionDAO();
-			String Championname=championDAO.readChampionById(id123).getName();
+			
+			if("delete".equals(action))
+			{
+				Integer cid = Integer.parseInt(commentid);				
+				commentdao.deleteComment(cid);
+			}
 					
 			if("create".equals(action))
 			{
@@ -34,17 +41,23 @@
 				Integer chid=Integer.parseInt(id);
 				champion=championdao.readChampionById(chid);
 				Integer id1 = Integer.parseInt(inputid);
-				Comment comment = new Comment(id1,content,champion);
+				Comment comment = new Comment(id1,content,champion,username);
 				commentdao.createComment(comment);
 			}
 			
-			else if("delete".equals(action))
-			{
-				int cid = Integer.parseInt(commentid);
-				commentdao.deleteComment(cid);
-			}
-				
+			
+			
+			
 			List<Comment> comments = commentdao.readAllComments();
+			
+			
+			
+			//Integer intid = Integer.parseInt(id);
+			//ChampionDAO championDAO=new ChampionDAO();
+			//Champion champion1=championDAO.readChampionById(intid);
+			//String Championname=champion1.getName();	
+			
+				
 		%>
 		<h1>
 			Comment
@@ -56,15 +69,16 @@
 			    <th>Champion Name</th>
 			    <th>CommentId</th>
 				<th>Content</th>
-				
-				
+			
+			
 			</tr>
 			<tr>
 			    <th><input class="form-control" name="id" placeholder="plz type championid" value="<%=id%>" /></th>
-			    <th><%=Championname %></th>
+			  
+			    <th>Championname </th>
 			    <th><input class="form-control" name="inputid" placeholder="plz type commentid" value="<%=inputid%>" /></th>
 				<th><input class="form-control" name="content" placeholder="plz type content" value="<%=content%>" /></th>
-				
+				<th><input class="form-control" name="username" placeholder="plz type content" value="<%=username%>" /></th>
 				
 							
 				<td>
@@ -80,9 +94,10 @@
 		        <td><%= yingxiong.getId() %></td>
 		        <td><%= yingxiong.getName() %></td>
 				<td><%= comment.getCommentid() %></td>
-				<td><%= comment.getContent() %></td>								
+				<td><%= comment.getContent() %></td>
+				<td><%=comment.getUsername() %></a></td>										
 				<td>
-					<a href="comment.jsp?action=delete&commentid=<%=comment.getCommentid() %>" class="btn btn-danger">Delete</a>
+					<a class="btn btn-danger" href="comment.jsp?action=delete&commentid=<%=comment.getCommentid() %>">Delete</a>
 				</td>
 				<td>
 				<a href="admin_Homepage.jsp" class="btn btn-danger">Back</a>

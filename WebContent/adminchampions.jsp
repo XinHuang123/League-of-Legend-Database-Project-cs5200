@@ -59,7 +59,8 @@ body {
     	String firstname=user.getFirstname();
     	String lastname=user.getLastname();
     	String dateofbirth=user.getDateofbirth();
-		user=new User(username,password,role,champion,firstname,lastname,dateofbirth);
+    	User user1=user.getUserid();
+		user=new User(username,password,role,champion,firstname,lastname,dateofbirth,user1);
 		userdao.UpdateUser(user);
     	//User user1=userdao.readUserByUsername(username);
     	//ChampionDAO championdao=new ChampionDAO();

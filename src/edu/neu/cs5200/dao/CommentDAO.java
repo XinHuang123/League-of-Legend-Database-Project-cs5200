@@ -99,6 +99,7 @@ public class CommentDAO {
  */
         public static void main(String[] args) {
                 CommentDAO dao = new CommentDAO();
+                dao.deleteComment(10);
               // Champion champion=new Champion(450,null,null,null,null,null);
                //Comment comment=new Comment(1,"WTF", champion);
               //Comment comment= dao.readChampionByChampionid(1);

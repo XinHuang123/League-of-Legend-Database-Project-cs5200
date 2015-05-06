@@ -1,10 +1,13 @@
 package edu.neu.cs5200.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,16 +26,32 @@ public class User {
 	@JoinColumn(name="championid")  // point to user table in database(cloumn: championid)
 	private Champion championid;	
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="userid") 
+	private User userid;
+	
+	@OneToMany(mappedBy="userid")  //point to user class(private String champion)
+	private List<User> users; //navigate to user
 	
 	
-	//public Champion getChampion() {
-	//	return champion;
-	//}
-	//public void setChampion(Champion champion) {
-	//	this.champion = champion;
-	//}
 	
 	
+	public User getUserid() {
+		return userid;
+	}
+
+	public void setUserid(User userid) {
+		this.userid = userid;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
 	public String getRole() {
 		return role;
 	}
@@ -84,7 +103,7 @@ public class User {
 		this.championid = championid;
 	}
 	
-	public User(String username, String password, String role, Champion championid, String firstname, String lastname, String dateofbirth) {
+	public User(String username, String password, String role, Champion championid, String firstname, String lastname, String dateofbirth,User userid) {
 		super();
 		this.username=username;
 		this.password=password;
@@ -94,7 +113,9 @@ public class User {
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.dateofbirth=dateofbirth;
+		this.userid=userid;
 	}
+	
 	public User() {
 		super();
 	}

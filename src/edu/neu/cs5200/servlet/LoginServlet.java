@@ -31,7 +31,9 @@ public class LoginServlet extends HttpServlet {
         // get request parameters for userID and password
         String User = request.getParameter("User");
         String pwd = request.getParameter("Password");
-        String role=request.getParameter("role");       
+        String role=request.getParameter("role"); 
+        String action=request.getParameter("action");   
+        String register=request.getParameter("register");   
        
        
     
@@ -54,7 +56,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("admin_Homepage.jsp");
         	}
         } 
-        else if(dao.readUserByUsername(User)==null)
+        else if("register".equals(action))
         {
         	
         	response.sendRedirect("registration.jsp");

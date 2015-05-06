@@ -4,9 +4,14 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 import edu.neu.cs5200.models.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -29,6 +34,8 @@ public class Champion {
 	    
 		@OneToMany(mappedBy="championid")
 	    private List<Comment> comments;
+		
+		
 		
 		public Integer getId() {
 			return id;

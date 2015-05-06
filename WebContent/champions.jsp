@@ -16,6 +16,9 @@ body {
     <h1>Champions</h1>
     
     <%
+   
+    
+    
     ChampionDAO championDAO = new ChampionDAO();
     String username=(String)session.getAttribute( "username" ) ;
     String action = request.getParameter("action");
@@ -37,7 +40,8 @@ body {
     	String firstname=user.getFirstname();
     	String lastname=user.getLastname();
     	String dateofbirth=user.getDateofbirth();
-		user=new User(username,password,role,champion,firstname,lastname,dateofbirth);
+    	User user1=user.getUserid();
+		user=new User(username,password,role,champion,firstname,lastname,dateofbirth,user1);
 		userdao.UpdateUser(user);
     	//User user1=userdao.readUserByUsername(username);
     	//ChampionDAO championdao=new ChampionDAO();
@@ -153,7 +157,7 @@ body {
                 
                 </td>
                 <td>
-				<a href="admin_Homepage.jsp" class="btn btn-danger">Back</a>
+				<a href="Homepage.jsp" class="btn btn-danger">Back</a>
 				
 				</td>
             </tr>

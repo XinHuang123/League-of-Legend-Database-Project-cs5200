@@ -28,6 +28,7 @@ public class HomepageServlet extends HttpServlet {
  
         // get request parameters for userID and password
         String search = request.getParameter("search");
+        String searchuser = request.getParameter("searchuser");
         String profile = request.getParameter("profile");
         String action = request.getParameter("action");
        
@@ -49,7 +50,14 @@ public class HomepageServlet extends HttpServlet {
             response.addCookie(LoginCookie);
         	response.sendRedirect("profile.jsp");
         }
-        
+        else if("searchuser".equals(action))
+        {
+        	Cookie LoginCookie = new Cookie("searchuser", searchuser);
+            // setting cookie to expiry in 60 mins
+            LoginCookie.setMaxAge(60 * 60);
+            response.addCookie(LoginCookie);
+        	response.sendRedirect("searchuser.jsp");
+        }
  
     }
 }

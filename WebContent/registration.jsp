@@ -102,6 +102,10 @@
                     <a class="btn btn-danger" href="registration.jsp?action=delete&username=<%=user.getUsername() %>">Delete</a>
                     <a class="btn btn-warning" href="registration.jsp?action=select&username=<%=user.getUsername()%>&password=<%=user.getPassword()%>&role=<%=user.getRole()%>&firstname=<%=user.getFirstname()%>&lastname=<%=user.getLastname()%>&dateodbirth=<%=user.getDateofbirth()%>">Select</a>
                 </td>
+                 <td>
+				<a href="login.html" class="btn btn-danger">Back</a>
+				
+				</td>
             </tr>
         <%
     }

@@ -13,7 +13,9 @@
 <body>
 	<div class="container">
 		<%
-			CommentDAO commentdao=new CommentDAO();
+		 String username=(String)session.getAttribute( "username" ) ;	
+		
+		   CommentDAO commentdao=new CommentDAO();
 		
 			String action = request.getParameter("action");
 			String commentid  = request.getParameter("commentid");
@@ -33,7 +35,7 @@
 				Integer chid=Integer.parseInt(id);
 				champion=championdao.readChampionById(chid);
 				Integer id1 = Integer.parseInt(inputid);
-				Comment comment = new Comment(id1,content,champion);
+				Comment comment = new Comment(id1,content,champion,username);
 				commentdao.createComment(comment);
 			}
 			
@@ -50,6 +52,7 @@
 			    <th>Champion Name</th>
 			    <th>CommentId</th>
 				<th>Content</th>
+			    <th>Username</th>
 				
 			</tr>
 			<tr>
@@ -57,6 +60,8 @@
 			    <th><%=Championname %></th>
 		        <th><input class="form-control" name="inputid" placeholder="plz type commentid" value="<%=inputid%>" /></th>
 				<th><input class="form-control" name="content" placeholder="plz type content" value="<%=content%>" /></th>
+				<th><input class="form-control" name="username" placeholder="plz type content" value="<%=username%>" /></th>
+				
 				
 				
 							
@@ -73,7 +78,9 @@
 		        <th><%= yingxiong.getId() %></th>
 		        <th><%= yingxiong.getName() %></th>
 				<td><%= comment.getCommentid() %></td>
-				<td><%= comment.getContent() %></td>				
+				<td><%= comment.getContent() %></td>
+				<td><%=comment.getUsername()%></td>				
+				
 				
 				<td>
 				<a href="Homepage.jsp" class="btn btn-danger">Back</a>

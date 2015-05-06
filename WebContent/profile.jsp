@@ -59,9 +59,36 @@ body {
   Champion champions = championDAO.readChampionById(chid);
         %>
             <tr>
-                <td><%=champions.getId()%></td>
+                <td><a href="championsDetails.jsp?id=<%=champions.getId()%>"><%=champions.getId() %></a></td>
                 <td><%=champions.getTitle() %></td>
                 <td><%=champions.getName() %></a></td>      
+               
+            </tr>
+   
+        </tbody>
+    </table>
+    </form>
+    </div>
+    <div>
+    <h3>Following User</h3>
+    <form action="profile.jsp">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>              
+            </tr>
+        </thead>
+        <tbody>
+  <%  
+  User user1=user.getUserid();
+ 
+  
+        %>
+            <tr>
+                <td><%=user1.getUsername() %></a></td>
+                <td><%=user1.getRole()%></td>
+                     
                
             </tr>
    

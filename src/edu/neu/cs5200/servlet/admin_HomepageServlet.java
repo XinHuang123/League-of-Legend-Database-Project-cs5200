@@ -30,6 +30,7 @@ public class admin_HomepageServlet extends HttpServlet {
         String search = request.getParameter("search");
         String profile = request.getParameter("profile");
         String action = request.getParameter("action");
+        String searchuser = request.getParameter("searchuser");
  
      //   if (userID.equals(User) && password.equals(pwd)) {
         if("search".equals(action)) {
@@ -49,7 +50,14 @@ public class admin_HomepageServlet extends HttpServlet {
             response.addCookie(LoginCookie);
         	response.sendRedirect("adminprofile.jsp");
         }
-        
+        else if("searchuser".equals(action))
+        {
+        	Cookie LoginCookie = new Cookie("searchuser", searchuser);
+            // setting cookie to expiry in 60 mins
+            LoginCookie.setMaxAge(60 * 60);
+            response.addCookie(LoginCookie);
+        	response.sendRedirect("adminsearchuser.jsp");
+        }
  
     }
 }
