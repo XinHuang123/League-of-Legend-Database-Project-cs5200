@@ -25,7 +25,12 @@ public class Champion {
 		private String key;
 		private String blurb;
 		private String lore;
-				
+		private String couple;
+		private String type;		
+		
+
+		
+
 		@OneToMany(mappedBy="championid")  //point to user class(private String champion)
 		private List<User> users; //navigate to user
 		
@@ -95,7 +100,21 @@ public class Champion {
 			super();
 		}
 		
-		public Champion(Integer id, String title, String name , String key ,String blurb , String lore) {
+		public String getCouple() {
+			return couple;
+		}
+		public void setCouple(String couple) {
+			this.couple = couple;
+		}
+		
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
+		
+		public Champion(Integer id, String title, String name , String key ,String blurb , String lore, String couple,String type) {
 			super();
 			this.id = id;
 			this.title = title;
@@ -103,7 +122,8 @@ public class Champion {
 			this.key=key;
 			this.blurb=blurb;
 			this.lore=lore;
-			
+			this.couple=couple;
+			this.type=type;
 			
 		}
 		

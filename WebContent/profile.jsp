@@ -86,7 +86,7 @@ body {
   
         %>
             <tr>
-                <td><%=user1.getUsername() %></a></td>
+                <td><a href="userdetail.jsp?username=<%=user1.getUsername() %>"><%=user1.getUsername()%></a></td>
                 <td><%=user1.getRole()%></td>
                      
                

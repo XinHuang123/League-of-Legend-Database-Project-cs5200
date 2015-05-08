@@ -13,18 +13,27 @@ body {
 </head>
 <body>
     <div>
+    <form action="championsDetails.jsp">
         <h1>Champion Details</h1>
         
         <%
+        String action = request.getParameter("action");
+        String id1 = request.getParameter("id1");
+        
         ChampionDAO dao = new ChampionDAO();        
         String idStr = request.getParameter("id");
         int id = Integer.parseInt(idStr);        
         Champion champion = dao.readChampionById(id);
+        String couple= champion.getCouple();
+       Integer coupleid=Integer.parseInt(couple); 
         %>
         
         Blurb: <%=champion.getBlurb() %>
         Lore: <%=champion.getLore()%>
-        
+        <br><br>
+      
+       <a href="champions.jsp?id=<%=coupleid%>&action=search">Related Champions</a>
+        </form>
     </div>
 </body>
 </html>

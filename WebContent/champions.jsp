@@ -33,7 +33,7 @@ body {
     	int idInt = Integer.parseInt(id); 
     	UserDAO userdao=new UserDAO();
     	ChampionDAO championdao=new ChampionDAO();
-    	Champion champion=new Champion(idInt,null,null,null,null,null);
+    	Champion champion=new Champion(idInt,null,null,null,null,null,null,null);
     	User user=userdao.readUserByUsername(username);
     	String password=user.getPassword();
     	String role=user.getRole();
@@ -77,16 +77,23 @@ body {
                 <th>Title</th>
                 <th>Name</th>
                 <th>Username</th>
+                <th>Type</th>
                 
             </tr>
             <tr>
                 <th><input class="form-control" name="id" placeholder="plz type id" value="<%=id%>" /></th>
                 <th><input class="form-control" name="title" placeholder="plz type title" value="<%=title%>"/></th>
                 <th><input class="form-control" name="name" placeholder="plz type name"  value="<%=name%>"/></th>  
-                <th><%= session.getAttribute( "username" ) %></th>              
-                <th>
+                <th><%= session.getAttribute( "username" ) %></th> 
+                <th></th>
+                 <th>
                  
                     <button class="btn btn-success" name="action" value="search">Search</button>
+                   
+                </th>         
+                <th>
+                 
+                   
                     <button class="btn btn-success" name="action" value="like">Like</button>
                 </th>
             </tr>
@@ -150,12 +157,15 @@ body {
                 	url=FIND_IMAGE_BY_NAME.replace("champion_name",  c);
                 }
                 
-             	%>           
+             	%>  
+             	 <td><%= session.getAttribute( "username" ) %></td> 
+             	  <td><%=champion.getType() %></td>         
                 <td><img src="<%=url %>"/></td>
                 <td>
                <a class="btn btn-primary" href="champions.jsp?action=select&id=<%=champion.getId() %>&title=<%=champion.getTitle()%>&name=<%=champion.getName()%>&username=<%=user.getUsername()%>">Select</a>
                 
                 </td>
+               
                 <td>
 				<a href="Homepage.jsp" class="btn btn-danger">Back</a>
 				
